@@ -1,0 +1,44 @@
+<app-header [address]="address$ | async"></app-header>
+
+<main>
+  <div class="app-container">
+    <h1>GG Fund Dashboard</h1>
+
+    <div class="stats">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Balance</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{ ggBalance$ | async}}
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Portfolio Value</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          {{ portfolioValue$ | async }}
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Token Value</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{ tokenValue$ | async }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="actions">
+      <a [routerLink]="stakeUrl" mat-stroked-button color="primary" class="size-m">Stake</a>
+      <a [routerLink]="claimUrl" mat-stroked-button="primary" class="size-m">Claim</a>
+    </div>
+  </div>
+</main>
+
+<router-outlet />

@@ -1,0 +1,16 @@
+h1 {
+  margin-bottom: 0.5em;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-gap: 32px;
+  margin-bottom: 32px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}

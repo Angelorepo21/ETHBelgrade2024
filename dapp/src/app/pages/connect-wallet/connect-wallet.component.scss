@@ -1,0 +1,34 @@
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15vh;
+}
+
+h1 {
+  font-family: "Holtwood One SC", serif;
+  font-size: 8em;
+  color: var(--app-background);
+  -webkit-text-stroke-width: 1px;
+  stroke-width: 1px;
+  -webkit-text-stroke-color: var(--primary-text-color);
+  stroke: var(--primary-text-color);
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.mdc-button {
+  --mdc-filled-button-label-text-size: 1.1em;
+  --mdc-filled-button-label-text-weight: 300;
+}

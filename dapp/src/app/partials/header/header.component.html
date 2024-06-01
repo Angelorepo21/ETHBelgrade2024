@@ -1,0 +1,10 @@
+<mat-toolbar>
+  <a routerLink="/" class="brand">GG Fund</a>
+
+  @if (address) {
+    <span class="address">
+      <img [src]="address | userIcon:32" alt="">
+      {{address | walletAddress}}
+    </span>
+  }
+</mat-toolbar>

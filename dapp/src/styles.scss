@@ -1,0 +1,173 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other pages in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$gg-fund-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    // primary: mat.$green-palette,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($gg-fund-theme);
+
+  --app-background: #262626;
+  --app-border-color: #151515;
+  --primary-text-color: #fff;
+  --secondary-text-color: rgba(255, 255, 255, 0.7);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($theme);
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  background-color: var(--app-background);
+}
+
+.gg-fund {
+  .color-primary {
+    color: var(--primary-text-color);
+  }
+
+  .color-secondary {
+    color: var(--secondary-text-color);
+  }
+
+  .cdk-overlay-dark-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .mdc-button {
+    --mdc-filled-button-label-text-weight: 400;
+    --mdc-filled-button-disabled-container-color: rgba(0, 0, 0, 0.12);
+    --mdc-filled-button-disabled-label-text-color: var(--secondary-text-color);
+
+    &.size-m {
+      --mdc-filled-button-container-height: 48px;
+      --mdc-outlined-button-container-height: 48px;
+      --mat-filled-button-horizontal-padding: 32px;
+      --mat-outlined-button-horizontal-padding: 32px;
+    }
+
+    &.size-l {
+      --mdc-filled-button-container-height: 56px;
+      --mdc-outlined-button-container-height: 56px;
+      --mat-filled-button-horizontal-padding: 48px;
+      --mat-outlined-button-horizontal-padding: 48px;
+    }
+  }
+
+  .mat-mdc-dialog {
+    &-container {
+      --mdc-dialog-container-color: var(--app-background);
+      --mdc-dialog-subhead-color: var(--primary-text-color);
+      --mdc-dialog-supporting-text-color: var(--secondary-text-color);
+
+      --mat-dialog-headline-padding: 24px 24px 12px;
+    }
+
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .mat-mdc-form-field {
+    --mdc-outlined-text-field-input-text-color: var(--primary-text-color);
+    --mdc-outlined-text-field-hover-outline-color: var(--mdc-outlined-text-field-focus-outline-color);
+    --mdc-outlined-text-field-hover-label-text-color: var(--mdc-outlined-text-field-focus-label-text-color);
+
+    & + .mat-mdc-form-field {
+      margin-top: 16px;
+    }
+
+    &.fullwidth {
+      width: 100%;
+    }
+  }
+
+  .mat-mdc-select {
+    --mat-select-enabled-trigger-text-color: var(--primary-text-color);
+
+    &-panel {
+      border: 2px solid var(--mdc-outlined-text-field-focus-outline-color);
+      border-top: 0;
+      --mat-select-panel-background-color: var(--app-background);
+    }
+  }
+
+  .mat-mdc-option {
+    --mat-option-label-text-color: var(--secondary-text-color);
+
+    &.with-icon {
+      .mdc-list-item__primary-text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .mat-mdc-card {
+    --mdc-elevated-card-container-color: rgba(0, 0, 0, 0.1);
+
+    &-content {
+      padding: 8px 16px 0;
+    }
+  }
+}
+
+main {
+  padding: 24px;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

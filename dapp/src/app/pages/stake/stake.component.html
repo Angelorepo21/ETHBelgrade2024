@@ -1,0 +1,36 @@
+<h1 matDialogTitle>
+  Stake
+
+  <button routerLink="/" class="color-primary" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</h1>
+
+<div matDialogContent>
+  <p>Stake your tokens to earn rewards.</p>
+
+  <form [formGroup]="form">
+    <mat-form-field class="fullwidth" appearance="outline" floatLabel="always">
+      <mat-label>Token</mat-label>
+      <mat-select formControlName="address">
+        @for (token of assets; track token.address) {
+          <mat-option class="with-icon" [value]="token.address">
+            <img [src]="token.icon" alt="">
+            {{ token.name }} <b>({{token.symbol}})</b>
+          </mat-option>
+        }
+      </mat-select>
+      <mat-error>{{addressControl.errors | fieldError}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="fullwidth" appearance="outline" floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input matInput digitOnly [decimal]="true" formControlName="amount">
+      <mat-error>{{amountControl.errors | fieldError}}</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div matDialogActions>
+  <button class="size-m" mat-flat-button color="primary" [disabled]="form.invalid" (click)="stake()">Stake</button>
+</div>
