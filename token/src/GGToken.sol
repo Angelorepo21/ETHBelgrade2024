@@ -34,9 +34,9 @@ contract GGToken is ERC20, Ownable, ReentrancyGuard {
         address[] memory path = new address[](2);
         path[0] = BNBTokenAddress;
         path[1] = _tokenAddress;
-//        uint[] memory amounts = IPancakeRouter02(routerV2).getAmountsOut(1 ether, path);
-//        return amounts[1];
-        return 2 ether;
+        uint[] memory amounts = IPancakeRouter02(routerV2).getAmountsOut(1 ether, path);
+        return amounts[1];
+//        return 2 ether;
     }
 
     function calculatePortfolioValue() public view returns (uint256) {
