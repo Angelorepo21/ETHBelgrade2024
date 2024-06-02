@@ -4,12 +4,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 15vh;
+  padding: 0 16px 15vh;
+  text-align: center;
+
+  --h1-font-size: 8em;
+
+  @media screen and (max-width: 768px) {
+    --h1-font-size: 4em;
+  }
 }
 
 h1 {
   font-family: "Holtwood One SC", serif;
-  font-size: 8em;
+  font-size: var(--h1-font-size);
   color: var(--app-background);
   -webkit-text-stroke-width: 1px;
   stroke-width: 1px;
