@@ -58,6 +58,7 @@ export class PortfolioService {
     try {
       const stake = await contract['stakeToken'](token.address, amount);
       await stake.wait();
+      this.snackbar.open('Stake successful', 'Ok', { panelClass: 'success-snackbar' })
     } catch (error) {
       // TODO: improve error handling
       const errMsg = 'Stake failed, reload the page and try again.';
@@ -75,6 +76,7 @@ export class PortfolioService {
     try {
       const claim = await contract['claimToken'](token.address, amount);
       await claim.wait();
+      this.snackbar.open('Claim successful', 'Ok', { panelClass: 'success-snackbar' })
     } catch (error) {
       // TODO: improve error handling
       const errMsg = 'Claim failed, reload the page and try again.';

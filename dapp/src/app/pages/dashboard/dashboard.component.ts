@@ -18,7 +18,6 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from "@angular/m
     AsyncPipe,
     HeaderComponent,
     MatAnchor,
-    RouterOutlet,
     MatCard,
     MatCardHeader,
     MatCardTitle,

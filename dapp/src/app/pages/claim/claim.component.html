@@ -31,5 +31,11 @@
 </div>
 
 <div matDialogActions>
-  <button class="size-m" mat-flat-button color="primary" [disabled]="form.invalid" (click)="claim()">Claim</button>
+  <button class="size-m" mat-flat-button color="primary" [disabled]="form.invalid || processing" (click)="claim()">
+    @if (processing) {
+      Processing...
+    } @else {
+      Claim
+    }
+  </button>
 </div>

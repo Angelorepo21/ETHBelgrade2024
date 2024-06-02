@@ -8,10 +8,11 @@ import { MatIcon } from "@angular/material/icon";
 import { MatInput } from "@angular/material/input";
 import { MatOption } from "@angular/material/core";
 import { MatSelect } from "@angular/material/select";
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { AssetOperation } from "../../partials/asset-operation";
 import { PortfolioService } from "../../services/portfolio/portfolio.service";
 import { DigitOnlyModule } from "@uiowa/digit-only";
+import { AppRoutes } from "../../constansts/app-routes";
 
 @Component({
   selector: 'app-claim',
@@ -40,9 +41,19 @@ import { DigitOnlyModule } from "@uiowa/digit-only";
 })
 export class ClaimComponent extends AssetOperation {
   private service: PortfolioService = inject(PortfolioService);
+  private router = inject(Router);
+
+  processing = false;
 
   async claim(): Promise<void> {
+    this.processing = true;
     const data = this.form.value;
-    await this.service.claim(data);
+
+    try {
+      await this.service.claim(data);
+      await this.router.navigate(['/', AppRoutes.DASHBOARD]);
+    } finally {
+      this.processing = false;
+    }
   }
 }

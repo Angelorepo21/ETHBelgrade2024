@@ -8,9 +8,10 @@ import { FieldErrorPipe } from "../../pipes/field-error/field-error.pipe";
 import { MatInput } from "@angular/material/input";
 import { MatOption, MatSelect } from "@angular/material/select";
 import { MatIcon } from "@angular/material/icon";
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { PortfolioService } from "../../services/portfolio/portfolio.service";
 import { DigitOnlyModule } from "@uiowa/digit-only";
+import { AppRoutes } from "../../constansts/app-routes";
 
 @Component({
   selector: 'app-stake',
@@ -38,9 +39,19 @@ import { DigitOnlyModule } from "@uiowa/digit-only";
 })
 export class StakeComponent extends AssetOperation {
   private service: PortfolioService = inject(PortfolioService);
+  private router = inject(Router);
+
+  processing = false;
 
   async stake(): Promise<void> {
+    this.processing = true;
     const data = this.form.value;
-    await this.service.stake(data);
+
+    try {
+      await this.service.stake(data);
+      await this.router.navigate(['/', AppRoutes.DASHBOARD]);
+    } finally {
+      this.processing = false;
+    }
   }
 }
