@@ -1,7 +1,7 @@
 export const portfolioTokens = [{
   name: 'Axie Infinity',
   symbol: 'AXS',
-  address: '0x556b60c53fbC1518Ad17E03d52E47368dD4d81B3',
+  address: '0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0',
   icon: '/images/axie.png',
 }, {
   name: 'Beam',

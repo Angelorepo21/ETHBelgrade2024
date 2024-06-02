@@ -2,8 +2,8 @@ export const Abi = [
   'function calculatePortfolioValue() public view returns (uint256)',
   'function tokenValue() external view returns (uint256)',
   'function balanceOf(address account) external view returns (uint256)',
-  'function stakeToken(address _tokenAddress, uint256 _amount) external nonReentrant',
-  'function claimToken(address _tokenAddress, uint256 _amount) external nonReentrant',
+  'function stakeToken(address _tokenAddress, uint256 _amount) external',
+  'function claimToken(address _tokenAddress, uint256 _amount) external',
 ];
 
 export const Erc20Abi = [
